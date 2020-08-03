@@ -53,3 +53,13 @@ describe('utils.verticalFlip', () => {
         expect(actual).toStrictEqual(expected);
     });
 });
+
+describe('utils.verticalFlip', () => {
+    it('should swap string in all rows', () => {
+        const inputStr = "1qaz";
+        const actual = verticalFlip(inputStr);
+        const expected = ["z","a","q","1"];
+        expect(actual.length).toEqual(inputStr.length);
+        expect(actual).toStrictEqual(expected);
+    });
+});
