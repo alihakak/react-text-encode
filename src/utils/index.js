@@ -33,4 +33,28 @@ export const horizontalFlip =  (inputStr) => {
     }
     return horizontalFlipValue;
   }
-  
+ 
+  export const verticalFlip =  (inputStr) => {
+    inputStr = inputStr.toLowerCase();
+    let verticalFlipValue = [];
+    let charPosition = -1;
+    for (var i = 0; i < inputStr.length; i ++)
+    {
+      if  (row1.includes(inputStr[i])) {
+        charPosition = row1.indexOf(inputStr[i], row1);
+        verticalFlipValue.push(row4[charPosition]);
+      } else if  (row2.includes(inputStr[i])) {
+        charPosition = row2.indexOf(inputStr[i], row2);
+        verticalFlipValue.push(row3[charPosition]);
+      } else if  (row3.includes(inputStr[i])) {
+        charPosition = row3.indexOf(inputStr[i], row3);
+        verticalFlipValue.push(row2[charPosition]);
+      } else if  (row4.includes(inputStr[i])) {
+        charPosition = row4.indexOf(inputStr[i], row4);
+        verticalFlipValue.push(row1[charPosition]);
+      } else {
+        verticalFlipValue.push(inputStr[i]);
+      }
+    }
+    return verticalFlipValue;
+  }
