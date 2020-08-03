@@ -1,4 +1,4 @@
-import { horizontalFlip } from '../index.js';
+import { horizontalFlip, verticalFlip } from '../index.js';
 /**
  * Unit tests for Horizontal transformation.
  */
@@ -37,6 +37,18 @@ describe('utils.horizontalFlip', () => {
         const inputStr = "AbCe0";
         const actual = horizontalFlip(inputStr);
         const expected = [";", "n", ",", "i", "1"];
+        expect(actual.length).toEqual(inputStr.length);
+        expect(actual).toStrictEqual(expected);
+    });
+});
+/**
+ * Unit tests for Vertical transformation.
+ */
+describe('utils.verticalFlip', () => {
+    it('should swap one charater from Row 1 to Row 4', () => {
+        const inputStr = "1";
+        const actual = verticalFlip(inputStr);
+        const expected = ["z"];
         expect(actual.length).toEqual(inputStr.length);
         expect(actual).toStrictEqual(expected);
     });
