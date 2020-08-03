@@ -33,4 +33,4 @@ export const horizontalFlip =  (inputStr) => {
     }
     return horizontalFlipValue;
   }
- 
+  
