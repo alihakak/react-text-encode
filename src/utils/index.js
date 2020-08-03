@@ -58,3 +58,30 @@ export const horizontalFlip =  (inputStr) => {
     }
     return verticalFlipValue;
   }
+  export const shiftBy = (inputStr, shiftBy) => {
+    let shiftedText = [];
+    inputStr = inputStr.toLowerCase();
+    const allRows = row1.concat(row2).concat(row3).concat(row4);
+    for (var i = 0; i < inputStr.length; i ++)
+    {
+      if (allRows.includes(inputStr[i])) {
+       const charPosInArray = allRows.indexOf(inputStr[i], allRows);
+        if (shiftBy < 0 || shiftBy === 0) {
+          if ((shiftBy % 40) === 0) { //in-line shift to same entered character 
+            shiftedText.push(allRows[charPosInArray]);
+          } else {
+            if ((charPosInArray + (shiftBy % 40)) < 0) {
+                shiftedText.push(allRows[allRows.length + (charPosInArray + (shiftBy % 40))]);
+            } else {
+                shiftedText.push(allRows[charPosInArray + (shiftBy % 40)]);
+            }
+          }
+        } else if (shiftBy > 0) {
+            shiftedText.push(allRows[(charPosInArray + (shiftBy % 40)) % 40]);
+        }
+      } else {
+        shiftedText.push(inputStr[i]);
+      }
+    }
+    return shiftedText;
+  }

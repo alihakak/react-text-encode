@@ -1,4 +1,4 @@
-import { horizontalFlip, verticalFlip } from '../index.js';
+import { horizontalFlip, verticalFlip, shiftBy } from '../index.js';
 /**
  * Unit tests for Horizontal transformation.
  */
@@ -33,7 +33,7 @@ describe('utils.horizontalFlip', () => {
 });
 
 describe('utils.horizontalFlip', () => {
-    it('should transform regardless of Case', () => {
+    it('should transform case insensitive', () => {
         const inputStr = "AbCe0";
         const actual = horizontalFlip(inputStr);
         const expected = [";", "n", ",", "i", "1"];
@@ -59,6 +59,47 @@ describe('utils.verticalFlip', () => {
         const inputStr = "1qaz";
         const actual = verticalFlip(inputStr);
         const expected = ["z","a","q","1"];
+        expect(actual.length).toEqual(inputStr.length);
+        expect(actual).toStrictEqual(expected);
+    });
+});
+describe('utils.verticalFlip', () => {
+    it('should transform string case insensitive', () => {
+        const inputStr = "AE$C";
+        const actual = verticalFlip(inputStr);
+        const expected = ["q","d","$","3"];
+        expect(actual.length).toEqual(inputStr.length);
+        expect(actual).toStrictEqual(expected);
+    });
+});
+/**
+ * Unit tests for shift by value +/-
+ */
+describe('utils.shiftBy', () => {
+    it('should shift by # in same row', () => {
+        const inputStr = "a";
+        const actual = shiftBy(inputStr, 1);
+        const expected = ["s"];
+        expect(actual.length).toEqual(inputStr.length);
+        expect(actual).toStrictEqual(expected);
+    });
+});
+
+describe('utils.shiftBy', () => {
+    it('should move to next row if at end', () => {
+        const inputStr = "0";
+        const actual = shiftBy(inputStr, 1);
+        const expected = ["q"];
+        expect(actual.length).toEqual(inputStr.length);
+        expect(actual).toStrictEqual(expected);
+    });
+});
+
+describe('utils.shiftBy', () => {
+    it('should shift string case insensitive', () => {
+        const inputStr = "ABcE6";
+        const actual = shiftBy(inputStr, 4);
+        const expected = ["g",".","m", "u", "0"];
         expect(actual.length).toEqual(inputStr.length);
         expect(actual).toStrictEqual(expected);
     });
