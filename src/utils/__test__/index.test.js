@@ -24,7 +24,7 @@ describe('utils.horizontalFlip', () => {
 
 describe('utils.horizontalFlip', () => {
     it('should transform from any row', () => {
-        const inputStr = "ABCE7";
+        const inputStr = "ABCE7".toLowerCase();
         const actual = horizontalFlip(inputStr);
         const expected = [";", "n", ",", "i", "4"];
         expect(actual.length).toEqual(inputStr.length);
@@ -32,15 +32,6 @@ describe('utils.horizontalFlip', () => {
     });
 });
 
-describe('utils.horizontalFlip', () => {
-    it('should transform case insensitive', () => {
-        const inputStr = "AbCe0";
-        const actual = horizontalFlip(inputStr);
-        const expected = [";", "n", ",", "i", "1"];
-        expect(actual.length).toEqual(inputStr.length);
-        expect(actual).toStrictEqual(expected);
-    });
-});
 /**
  * Unit tests for Vertical transformation.
  */
@@ -65,7 +56,7 @@ describe('utils.verticalFlip', () => {
 });
 describe('utils.verticalFlip', () => {
     it('should transform string case insensitive', () => {
-        const inputStr = "AE$C";
+        const inputStr = "AE$C".toLowerCase();
         const actual = verticalFlip(inputStr);
         const expected = ["q","d","$","3"];
         expect(actual.length).toEqual(inputStr.length);
@@ -98,7 +89,7 @@ describe('utils.shiftBy', () => {
 
 describe('utils.shiftBy', () => {
     it('should shift string case insensitive', () => {
-        const inputStr = "ABcE6";
+        const inputStr = "ABcE6".toLowerCase();
         const actual = shiftBy(inputStr, 4);
         const expected = ["g",".","m", "u", "0"];
         expect(actual.length).toEqual(inputStr.length);

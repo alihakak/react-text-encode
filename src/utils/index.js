@@ -4,7 +4,7 @@ var row3 = ["a", "s", "d", "f", "g", "h", "j", "k", "l", ";"];
 var row4 = ["z", "x", "c", "v", "b", "n", "m", ",", ".", "/"];
 
 export const horizontalFlip =  (inputStr) => {
-    inputStr = inputStr.toLowerCase();
+    inputStr = inputStr;
     let horizontalFlipValue = []; 
     let charPosition = 0;
     for (var i = 0; i < inputStr.length; i ++)
@@ -35,7 +35,7 @@ export const horizontalFlip =  (inputStr) => {
   }
  
   export const verticalFlip =  (inputStr) => {
-    inputStr = inputStr.toLowerCase();
+    inputStr = inputStr;
     let verticalFlipValue = [];
     let charPosition = -1;
     for (var i = 0; i < inputStr.length; i ++)
@@ -60,7 +60,7 @@ export const horizontalFlip =  (inputStr) => {
   }
   export const shiftBy = (inputStr, shiftBy) => {
     let shiftedText = [];
-    inputStr = inputStr.toLowerCase();
+    inputStr = inputStr;
     const allRows = row1.concat(row2).concat(row3).concat(row4);
     for (var i = 0; i < inputStr.length; i ++)
     {

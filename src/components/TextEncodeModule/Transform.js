@@ -39,7 +39,7 @@ class EncodeModule extends Component {
         this.setState({ command: e.target.value });
     }
     encodeText() {
-        var outputText = this.state.inputText.toString().split(',').join("");
+        var outputText = this.state.inputText.toString().toLowerCase().split(',').join("");
         const command = this.state.command.toString().toUpperCase().replace(/\s/g, "").split(",");
         for (var i = 0; i < command.length; i++) {
             if (command[i] === "H") {
