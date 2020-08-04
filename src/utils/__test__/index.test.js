@@ -72,6 +72,7 @@ describe('utils.verticalFlip', () => {
         expect(actual).toStrictEqual(expected);
     });
 });
+
 /**
  * Unit tests for shift by value +/-
  */
