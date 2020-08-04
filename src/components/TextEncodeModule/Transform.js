@@ -40,7 +40,7 @@ class EncodeModule extends Component {
     }
     encodeText() {
         var outputText = this.state.inputText.toString().split(',').join("");
-        const command = this.state.command.toString().toUpperCase();
+        const command = this.state.command.toString().toUpperCase().replace(/\s/g, "").split(",");
         for (var i = 0; i < command.length; i++) {
             if (command[i] === "H") {
                 outputText = encodeUtils.horizontalFlip(outputText);
@@ -67,6 +67,11 @@ class EncodeModule extends Component {
                     </div>
                     <div className="form-group">
                         <h2>Transformation Command</h2>
+                        <p>
+                            H = horizontal, V = vertical, 6 = Right-Shift by 5, -5 = Left-Shift by 6
+                            <br></br>
+                            eg. H, V, 6
+                        </p>
                         <Command type="text" onChange={this.readCommand} className="form-control" placeholder="Enter transformation keys" />
                     </div>
                     <div className="form-group">
